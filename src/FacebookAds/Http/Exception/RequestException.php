@@ -74,7 +74,7 @@ class RequestException extends Exception {
    */
   public function __construct(ResponseInterface $response) {
     $this->response = $response;
-    $error_data = static::getErrorData($response->getContent());
+    $error_data = static::getErrorData((array)$response->getContent());
 
     parent::__construct($error_data['message'], $error_data['code']);
 
